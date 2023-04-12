@@ -1,0 +1,28 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "no-only-tests/no-only-tests": "off",
+    // prefer global Buffer to not initialize the whole module
+    "n/prefer-global/buffer": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": ["path"]
+      }
+    ],
+    "import/no-named-as-default": "off"
+  },
+  "overrides": [
+    {
+      "files": "packages/**/*.*",
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": ["vitest", "path"]
+          }
+        ]
+      }
+    }
+  ]
+}
