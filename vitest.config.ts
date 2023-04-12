@@ -8,30 +8,30 @@ function noop() {}
 export default defineConfig({
   plugins: [
     Vue(),
-    {
-      name: 'track-before',
-      enforce: 'pre',
-      resolveId(id) {
-        console.log('track-before:resolveId', id)
-      },
-      load(id) {
-        console.log('track-before:load', id)
-      },
-      transform(code, id) {
-        if (id === 'vitest/utils' || id === '@vitest/utils')
-          console.log('track-before:transform', id, code)
-      },
-    },
-    {
-      name: 'track-after',
-      enforce: 'post',
-      resolveId(id) {
-        console.log('track-after:resolveId', id)
-      },
-      load(id) {
-        console.log('track-after:load', id)
-      },
-    },
+    // {
+    //   name: 'track-before',
+    //   enforce: 'pre',
+    //   resolveId(id) {
+    //     console.log('track-before:resolveId', id)
+    //   },
+    //   load(id) {
+    //     console.log('track-before:load', id)
+    //   },
+    //   transform(code, id) {
+    //     if (id === 'vitest/utils' || id === '@vitest/utils')
+    //       console.log('track-before:transform', id, code)
+    //   },
+    // },
+    // {
+    //   name: 'track-after',
+    //   enforce: 'post',
+    //   resolveId(id) {
+    //     console.log('track-after:resolveId', id)
+    //   },
+    //   load(id) {
+    //     console.log('track-after:load', id)
+    //   },
+    // },
   ],
   optimizeDeps: {
     exclude: ['vitest', 'vitest/utils', 'vitest/browser', 'vitest/runners', '@vitest/utils'],
