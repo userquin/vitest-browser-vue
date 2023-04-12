@@ -33,15 +33,14 @@ export default defineConfig({
       },
     },
   ],
-  /* resolve: {
-    alias: {
-      'vitest/utils': `${resolve(__dirname, './node_modules/vitest/dist/utils.js').replace(/\\/g, '/')}`,
-      '@vitest/utils': `file:///${resolve(__dirname, './node_modules/@vitest/utils/dist/index.js').replace(/\\/g, '/')}`,
-    },
-  }, */
   optimizeDeps: {
-    exclude: ['vitest/utils'],
-    include: ['@vitest/utils', 'vitest/browser'],
+    exclude: ['vitest', 'vitest/utils', 'vitest/browser', 'vitest/runners', '@vitest/utils'],
+    include: [
+      '@vitest/utils > concordance', '@vitest/utils > loupe', '@vitest/utils > pretty-format',
+      'vitest > chai', 'vitest > chai > assertion-error', 'vitest > chai > check-error',
+      'vitest > chai > deep-eql', 'vitest > chai > get-func-name', 'vitest > chai > pathval',
+      'vitest > chai > type-detect',
+    ],
   },
   test: {
     include: ['test/basic.test.ts'],

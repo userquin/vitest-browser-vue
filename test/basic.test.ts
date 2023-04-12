@@ -1,10 +1,8 @@
 import { mount } from '@vue/test-utils'
-import { expect, it } from 'vitest'
+import { expect, test } from 'vitest'
 import Hello from '../components/Hello.vue'
 
-console.log('PASO')
-
-it('mount component', async () => {
+test('mount component', async () => {
   expect(Hello).toBeTruthy()
 
   const wrapper = mount(Hello, {
