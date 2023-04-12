@@ -8,7 +8,7 @@
   "numFailedTests": 0,
   "numPendingTests": 0,
   "numTodoTests": 0,
-  "startTime": 1681331090020,
+  "startTime": 1681333958124,
   "success": true,
   "testResults": [
     {
@@ -20,12 +20,12 @@
           "fullName": " mount component",
           "status": "passed",
           "title": "mount component",
-          "duration": 11,
+          "duration": 15,
           "failureMessages": []
         }
       ],
-      "startTime": 1681331095310,
-      "endTime": 1681331095321,
+      "startTime": 1681333962810,
+      "endTime": 1681333962825,
       "status": "passed",
       "message": "",
       "name": "D:/work/projects/userquin/GitHub/antfu/vitest-browser-test/vitest-browser-vue/vitest-browser-vue/test/basic.test.ts"

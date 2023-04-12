@@ -8,40 +8,39 @@ function noop() {}
 export default defineConfig({
   plugins: [
     Vue(),
-    {
-      name: 'track-before',
-      enforce: 'pre',
-      resolveId(id) {
-        console.log('track-before:resolveId', id)
-      },
-      load(id) {
-        console.log('track-before:load', id)
-      },
-      transform(code, id) {
-        if (id === 'vitest/utils' || id === '@vitest/utils')
-          console.log('track-before:transform', id, code)
-      },
-    },
-    {
-      name: 'track-after',
-      enforce: 'post',
-      resolveId(id) {
-        console.log('track-after:resolveId', id)
-      },
-      load(id) {
-        console.log('track-after:load', id)
-      },
-    },
+    // {
+    //   name: 'track-before',
+    //   enforce: 'pre',
+    //   resolveId(id) {
+    //     console.log('track-before:resolveId', id)
+    //   },
+    //   load(id) {
+    //     console.log('track-before:load', id)
+    //   },
+    //   transform(code, id) {
+    //     if (id === 'vitest/utils' || id === '@vitest/utils')
+    //       console.log('track-before:transform', id, code)
+    //   },
+    // },
+    // {
+    //   name: 'track-after',
+    //   enforce: 'post',
+    //   resolveId(id) {
+    //     console.log('track-after:resolveId', id)
+    //   },
+    //   load(id) {
+    //     console.log('track-after:load', id)
+    //   },
+    // },
   ],
-  /* resolve: {
-    alias: {
-      'vitest/utils': `${resolve(__dirname, './node_modules/vitest/dist/utils.js').replace(/\\/g, '/')}`,
-      '@vitest/utils': `file:///${resolve(__dirname, './node_modules/@vitest/utils/dist/index.js').replace(/\\/g, '/')}`,
-    },
-  }, */
   optimizeDeps: {
-    exclude: ['vitest/utils'],
-    include: ['@vitest/utils', 'vitest/browser'],
+    exclude: ['vitest', 'vitest/utils', 'vitest/browser', 'vitest/runners', '@vitest/utils'],
+    include: [
+      '@vitest/utils > concordance', '@vitest/utils > loupe', '@vitest/utils > pretty-format',
+      'vitest > chai', 'vitest > chai > assertion-error', 'vitest > chai > check-error',
+      'vitest > chai > deep-eql', 'vitest > chai > get-func-name', 'vitest > chai > pathval',
+      'vitest > chai > type-detect',
+    ],
   },
   test: {
     include: ['test/basic.test.ts'],
