@@ -5,6 +5,9 @@ import Vue from '@vitejs/plugin-vue'
 
 function noop() {}
 
+const headless = !!process.env.HEADLESS
+const provider = process.env.PROVIDER || 'webdriverio'
+
 export default defineConfig({
   plugins: [
     Vue(),
@@ -33,13 +36,14 @@ export default defineConfig({
     //   },
     // },
   ],
+  // TODO: remove this when browser package fixed
   optimizeDeps: {
     exclude: ['vitest', 'vitest/utils', 'vitest/browser', 'vitest/runners', '@vitest/utils'],
     include: [
-      '@vitest/utils > concordance', '@vitest/utils > loupe', '@vitest/utils > pretty-format',
-      'vitest > chai', 'vitest > chai > assertion-error', 'vitest > chai > check-error',
-      'vitest > chai > deep-eql', 'vitest > chai > get-func-name', 'vitest > chai > pathval',
-      'vitest > chai > type-detect',
+      '@vitest/utils > concordance',
+      '@vitest/utils > loupe',
+      '@vitest/utils > pretty-format',
+      'vitest > chai',
     ],
   },
   test: {
@@ -47,10 +51,10 @@ export default defineConfig({
     browser: {
       enabled: true,
       name: 'chrome',
-      headless: false,
-      provider: 'webdriverio',
+      headless,
+      provider,
     },
-    open: true,
+    open: !headless,
     isolate: false,
     outputFile: './browser.json',
     reporters: ['json', {

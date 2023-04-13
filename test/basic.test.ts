@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { expect, it } from 'vitest'
 import Hello from '../components/Hello.vue'
 
+// when using `test` (instead `it`) the console output missing on UI
 it('mount component', async () => {
   expect(Hello).toBeTruthy()
 

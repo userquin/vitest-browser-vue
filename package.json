@@ -2,7 +2,8 @@
   "name": "vitest-browser-vue",
   "type": "module",
   "scripts": {
-    "test": "vitest",
+    "test-chrome": "vitest",
+    "test-chrome-headless": "HEADLESS=true vitest",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
