@@ -37,15 +37,15 @@ export default defineConfig({
     // },
   ],
   // TODO: remove this when browser package fixed
-  optimizeDeps: {
-    exclude: ['vitest', 'vitest/utils', 'vitest/browser', 'vitest/runners', '@vitest/utils'],
-    include: [
-      '@vitest/utils > concordance',
-      '@vitest/utils > loupe',
-      '@vitest/utils > pretty-format',
-      'vitest > chai',
-    ],
-  },
+  // optimizeDeps: {
+  //   exclude: ['vitest', 'vitest/utils', 'vitest/browser', 'vitest/runners', '@vitest/utils'],
+  //   include: [
+  //     '@vitest/utils > concordance',
+  //     '@vitest/utils > loupe',
+  //     '@vitest/utils > pretty-format',
+  //     'vitest > chai',
+  //   ],
+  // },
   test: {
     include: ['test/basic.test.ts'],
     browser: {
