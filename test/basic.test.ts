@@ -1,8 +1,9 @@
 import { mount } from '@vue/test-utils'
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import Hello from '../components/Hello.vue'
 
-test('mount component', async () => {
+// with Vite 4.3 missing logs on UI
+it('mount component', async () => {
   expect(Hello).toBeTruthy()
 
   const wrapper = mount(Hello, {
